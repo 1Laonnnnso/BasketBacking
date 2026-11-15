@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://xviluont35uh"]
+
+[ext_resource type="Script" uid="uid://gnctd8nse0c8" path="res://ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://r2s3xty8n0s3" path="res://cartoon-basketball-clipart_1245719-5883.webp" id="2_ktgx5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ff64r"]
+radius = 25.0
+
+[node name="Ball" type="RigidBody2D" unique_id=2020839735]
+script = ExtResource("1_41u45")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1952358583]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ktgx5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D" unique_id=1265603863]
+position = Vector2(29.999996, -79.99999)
+scale = Vector2(9.999999, 9.999999)
+shape = SubResource("CircleShape2D_ff64r")
