@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://du2gaqax4mjqg"]
+
+[ext_resource type="PackedScene" uid="uid://ctmvc70htei1e" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="PackedScene" uid="uid://c2lwhk16jlp2t" path="res://scenes/platform.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://frpykuv8a2jf" path="res://scenes/ball.tscn" id="3_4wyf3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k0juu"]
+bounce = 0.6
+
+[node name="world" type="Node2D" unique_id=1513156975]
+
+[node name="Platform" parent="." unique_id=2065662266 instance=ExtResource("2_rwgxs")]
+position = Vector2(169, 121)
+scale = Vector2(3, 3)
+
+[node name="Player" parent="." unique_id=724277762 node_paths=PackedStringArray("held_ball") instance=ExtResource("1_nnsk1")]
+position = Vector2(166, 63)
+scale = Vector2(1.5, 1.5)
+held_ball = NodePath("../Ball")
+
+[node name="Platform2" parent="." unique_id=66530949 instance=ExtResource("2_rwgxs")]
+position = Vector2(-22, -10.999992)
+rotation = 1.5707964
+scale = Vector2(3, 3)
+
+[node name="Platform2" parent="Platform2" unique_id=644362462 instance=ExtResource("2_rwgxs")]
+position = Vector2(-8.106232e-06, -127.666664)
+
+[node name="Ball" parent="." unique_id=1246192875 instance=ExtResource("3_4wyf3")]
+position = Vector2(188, 53)
+mass = 0.06
+physics_material_override = SubResource("PhysicsMaterial_k0juu")

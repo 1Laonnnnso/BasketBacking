@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://frpykuv8a2jf"]
+
+[ext_resource type="Script" uid="uid://gnctd8nse0c8" path="res://ball.gd" id="1_7s4qf"]
+[ext_resource type="Texture2D" uid="uid://hjlm350l6asp" path="res://assets/ball.png" id="2_cxlvu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rwgxs"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ncm0w"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ri4b5"]
+radius = 3.0
+
+[node name="Ball" type="RigidBody2D" unique_id=1246192875 groups=["balls"]]
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_7s4qf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=435931784]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_cxlvu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2122880755]
+shape = SubResource("CircleShape2D_rwgxs")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="KickArea" type="Area2D" parent="." unique_id=1056628591]
+collision_mask = 5
+
+[node name="AreaShape2D" type="CollisionShape2D" parent="KickArea" unique_id=345225162]
+shape = SubResource("CircleShape2D_ncm0w")
+debug_color = Color(0.98675984, 0, 0.32509443, 0.41960785)
+
+[node name="pickUpBall" type="Area2D" parent="." unique_id=791319476]
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape2D" parent="pickUpBall" unique_id=1712512203]
+shape = SubResource("CircleShape2D_ri4b5")
+debug_color = Color(1.5883148e-06, 0.64367545, 0.30135626, 0.41960785)
