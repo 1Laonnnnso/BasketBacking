@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://y3sw7uq8pi2h"]
+
+[ext_resource type="Script" uid="uid://p14j3vt1vq6k" path="res://scenes/control.gd" id="1_brbbq"]
+[ext_resource type="Texture2D" uid="uid://c06qh1h1h6243" path="res://assets/logo.png" id="1_r67kn"]
+[ext_resource type="FontFile" uid="uid://b03605n3kexod" path="res://assets/windows_command_prompt.ttf" id="2_brbbq"]
+
+[node name="Control" type="Control" unique_id=769199008]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_brbbq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1200157145]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=369442491]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -31.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Start"
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=748968086]
+position = Vector2(160.00002, 90)
+scale = Vector2(1.015873, 0.7119999)
+texture = ExtResource("1_r67kn")
+
+[node name="Label" type="Label" parent="." unique_id=1608409173]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 93.0
+offset_right = -23.0
+offset_bottom = -59.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_brbbq")
+theme_override_font_sizes/font_size = 31
+text = "Basket            Backing"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

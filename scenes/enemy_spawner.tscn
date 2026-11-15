@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ik480uvau6sy"]
+
+[ext_resource type="Script" uid="uid://eiueal1f2y2b" path="res://spawner.gd" id="1_ks1gq"]
+[ext_resource type="PackedScene" uid="uid://b53kubjsxxnr0" path="res://scenes/enemy.tscn" id="2_devoi"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=324791223 node_paths=PackedStringArray("left_spawn_marker", "right_spawn_marker")]
+script = ExtResource("1_ks1gq")
+enemy_scene = ExtResource("2_devoi")
+left_spawn_marker = NodePath("LeftSpawnPoint")
+right_spawn_marker = NodePath("RightSpawnPoint")
+
+[node name="Timer" type="Timer" parent="." unique_id=1287103272]
+
+[node name="LeftSpawnPoint" type="Marker2D" parent="." unique_id=756219226]
+position = Vector2(313, 64)
+
+[node name="RightSpawnPoint" type="Marker2D" parent="." unique_id=1007556049]
+position = Vector2(-1010, 71)

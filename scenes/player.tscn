@@ -129,7 +129,11 @@ height = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ri4b5"]
 size = Vector2(22, 5)
 
-[node name="Player" type="CharacterBody2D" unique_id=724277762]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ri4b5"]
+radius = 7.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D" unique_id=724277762 groups=["player"]]
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1418491121]
@@ -144,8 +148,7 @@ position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_qhqgy")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=764483316]
-position = Vector2(0, -1)
-zoom = Vector2(1.2, 1.2)
+position = Vector2(0, -20)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
@@ -162,4 +165,12 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ri4b5")
 debug_color = Color(0.9949309, 0, 0.2215791, 0.41960785)
 
+[node name="hitbox" type="Area2D" parent="." unique_id=81230352]
+
+[node name="AreaShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2036468251]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_ri4b5")
+debug_color = Color(1, 1, 1, 0.41960785)
+
 [connection signal="area_entered" from="pickupArea" to="." method="_on_pickup_area_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
